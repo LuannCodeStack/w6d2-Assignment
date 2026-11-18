@@ -1,10 +1,40 @@
 // Student B (feature/logic): implement calculator behavior in this file.
 // For example, read the two inputs and the selected operation.
-// Then calculate the result and update #result.
+// Then calculate the result and update #result.1
 
-const button = document.querySelector('#calculate');
-const result = document.querySelector('#result');
+const button = document.getElementById('calculate');
+const result = document.getElementById('result');
 
 button.addEventListener('click', () => {
-  result.textContent = 'Result: implement me on feature/logic';
+  const numA = parseFloat(document.getElementById('numberA').value);
+  const numB = parseFloat(document.getElementById('numberB').value);
+  const operation = document.getElementById('operation').value;
+
+  if (isNaN(numA) || isNaN(numB)) {
+    result.textContent = 'Please enter valid numbers.';
+    return;
+  }
+  let resultCalculation;
+
+  switch (operation) {
+    case '+':
+      resultCalculation = numA + numB;
+      break;
+    case '-':
+      resultCalculation = numA - numB;
+      break;
+    case '*':
+      resultCalculation = numA * numB;
+      break;
+    case '/':
+      if (numB === 0) {
+        result.textContent = 'Error: Division by zero is not allowed.';
+        return;
+      }
+      resultCalculation = numA / numB;
+      break;
+    default:
+      resultCalculation = 'Invalid operation';
+  }
+  result.textContent = `result: ${resultCalculation}`;
 });
