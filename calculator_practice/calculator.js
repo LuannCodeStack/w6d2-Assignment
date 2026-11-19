@@ -1,7 +1,3 @@
-// Student B (feature/logic): implement calculator behavior in this file.
-// For example, read the two inputs and the selected operation.
-// Then calculate the result and update #result.1
-
 const button = document.getElementById('calculate');
 const result = document.getElementById('result');
 

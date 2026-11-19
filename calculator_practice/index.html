@@ -1,35 +1,169 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Team Calculator</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 3rem; color: #1e293b; }
-    main { max-width: 420px; }
-    input, select, button { font: inherit; margin: .25rem; padding: .4rem; }
-    input { width: 75px; }
-  </style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #edf3fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    width: 420px;
+    height: 90%;
+    padding: 26px;
+    background-color: white;
+    border-radius: 14px;
+  }
+
+  h1 {
+    color: #24518a;
+    font-size: 26px;
+    margin: 0 0 8px;
+  }
+
+  main p {
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  input,
+  select {
+    height: 40px;
+    border: 1px solid #cdb5e1;
+    border-radius: 7px;
+    padding: 8px;
+    background-color: white;
+    color: #334155;
+    outline: none;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  .calculator-inputs {
+    display: flex;
+    align-items: end;
+    gap: 10px;
+  }
+
+  .calculator-inputs label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    font-size: 13px;
+    color: #334155;
+  }
+
+  .calculator-inputs select {
+    width: 55px;
+  }
+
+  #calculate {
+    width: 100%;
+    margin: 22px 0 0;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2452dc;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  #calculate:hover {
+    background-color: #193fb5;
+  }
+
+  #result {
+    margin: 20px 0 0;
+    padding: 15px;
+    background-color: #eaf3ff;
+    border: 1px solid #d4e5ff;
+    border-radius: 8px;
+    color: #24518a;
+    font-size: 15px;
+    font-weight: bold;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 20px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 100%;
+      padding: 20px;
+    }
+
+    .calculator-inputs {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .calculator-inputs select {
+      width: 100%;
+    }
+
+    .calculator-inputs input {
+      width: 100%;
+    }
+  }
+</style>
 </head>
+
 <body>
   <main>
     <h1>Team Calculator</h1>
     <p>Our two-person GitHub teamwork project.</p>
-    <label>First number <input id="numberA" type="number" value="2"></label>
-    <select id="operation" aria-label="Operation">
-      <option value="+">+</option>
-      <option value="-">-</option>
-      <option value="*">×</option>
-      <option value="/">÷</option>
-    </select>
-    <label>Second number <input id="numberB" type="number" value="3"></label>
+    <div class="calculator-inputs">
+      <label>
+        First number
+        <input id="numberA" type="number" value="2">
+      </label>
+
+      <select id="operation" aria-label="Operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+      </select>
+
+      <label>
+        Second number
+        <input id="numberB" type="number" value="3">
+      </label>
+    </div>
     <button id="calculate" type="button">Calculate</button>
     <p id="result" role="status">Result: not calculated yet</p>
   </main>
   <script src="./calculator.js"></script>
 </body>
-  
-  <style>
 
-  </style>
 </html>
